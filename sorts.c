@@ -78,11 +78,29 @@ bubbleSort(int array[], int n)
 int
 quickSortR(int array[], int start, int stop)
 {
+  int i = start;
+  int j = start; 
+  int p = array[stop-1];
+  int compar = 0;
+  
+  if(stop-start == 0 || stop-start == 1){
+  }else{
+    for(; j<stop; j++){
+      if(array[j]>p){
+	compar++;
+      }else{
+	compar++;
+	int b = array[i];
+	array[i] = array[j];
+	array[j] = b;
+	i++;
+      }
+    }
+    compar += quickSortR(array, 0, i-1);
+    compar += quickSortR(array, i, j);
+  }
+  return compar;
 
-	//  -----  add your code here   -------
-	// don't forget to count and return the number of comparisons
-
-	return 0;
 }
 
 int
